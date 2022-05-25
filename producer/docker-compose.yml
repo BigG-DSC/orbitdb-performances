@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  orbit:
+    container_name: orbit-consumer
+    build: .
+    command: node app.js
+    env_file: .env
+    volumes:
+      - ./ipfs:/home/node/ipfs
+      - ./orbitdb:/home/node/orbitdb
+    ports:
+      - "4000:4000"
+      - "4001:4001"
+      - "4002:4002"
